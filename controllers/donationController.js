@@ -1,6 +1,6 @@
 import { donationModel } from "../models/donationModel.js";
 import { userModel } from "../models/userModel.js";
-import { sendSMS } from "../utils/sendSms.js";
+import { sendSMS } from "../utils/sendSMS.js";
 
 export const getAllDonations = async (req, res) => {
   try {
