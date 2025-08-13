@@ -53,10 +53,21 @@ app.use("/api/family-history", famliyHistoryRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-const Port = process.env.PORT;
-app.listen(Port, () => {
-  console.log(`Server started on PORT: ${Port}`);
-});
-console.log("MONGO_URI in prod:", process.env.MONGO_URI);
-console.log("db_URI in prod:", process.env.db_URI);
+// const Port = process.env.PORT;
+// app.listen(Port, () => {
+//   console.log(`Server started on PORT: ${Port}`);
+// });
 
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server started on PORT: ${PORT}`);
+});
+console.log("DB_URI:", process.env.DB_URI ? "Loaded" : "MISSING!");
+console.log("DB_NAME:", process.env.DB_NAME);
+console.log(
+  "All env vars:",
+  Object.keys(process.env).filter(
+    (k) => k.includes("DB") || k.includes("NODE_ENV")
+  )
+);
