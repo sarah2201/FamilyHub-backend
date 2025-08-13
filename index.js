@@ -57,3 +57,6 @@ const Port = process.env.PORT;
 app.listen(Port, () => {
   console.log(`Server started on PORT: ${Port}`);
 });
+console.log("MONGO_URI in prod:", process.env.MONGO_URI);
+console.log("db_URI in prod:", process.env.db_URI);
+
